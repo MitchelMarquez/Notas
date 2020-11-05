@@ -1,19 +1,20 @@
 using Microsoft.EntityFrameworkCore;
-using System.Colecctions.Generic;
+using System.Collections.Generic;
+
 namespace Notas.Models
 {
     
-    puplic class NotasContext : Dbcontext
+    public class NotasContext : DbContext
     {
 
-  public NotasContext(DbcontextOptions<NotasContext> Options)
+  public NotasContext(DbContextOptions<NotasContext> Options)
   :base(Options)
 {
 
  }
   
-  public DBSet<Nota> Nota {get;set;}
-  public DBSet<Usuario> Usuario {get;set;}
+  public DbSet<Nota> Nota {get;set;}
+  public DbSet<Usuario> Usuario {get;set;}
 
  }
  
