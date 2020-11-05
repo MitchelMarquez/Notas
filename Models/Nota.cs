@@ -1,19 +1,23 @@
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
+
 namespace  Notas.Models
 {
     public  class Nota
   {
 
-    [Key]
-    [DatabaseGenerated(DataBaseGeneratedOption.Identity)]
+    // [Key]
+    // [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int ID {get; set;}
 
-    [Require]
+    // [Require]
     public string Titulo {get; set;}
 
-    [Require]
+    // [Require]
     public string Cuerpo {get; set;}
     
-    [Require]
+    // [Require]
     public Usuario  Creador {get; set;}
    }
 }
