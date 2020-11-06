@@ -69,3 +69,44 @@ body {
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
+
+.notaForm{
+  width: 0px;
+  height: 85vh;
+  opacity: 0;
+  position: relative;
+  transition: width .2s, opacity .05s ease-in;
+}
+
+.showForm{
+  width: 300px;
+  opacity: 1;
+  transition: width .2s, opacity .2s ease-in;
+  border-right: 1px solid #e5e5e5;
+  background-color: #fff;
+}
+
+.notaForm__title{
+  font-size: 1.25rem;
+}
+
+.notaForm__CloseBtn{
+  position: absolute;
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  right: 10px;
+  top: 15px;
+  font-size: 1.8rem;
+}
+
+.btn-simple{
+  background-color: transparent;
+  border: none;
+  font-size: .9rem;
+  color: #0366d6;
+}
+
+.btn-simple:hover{
+  text-decoration: underline;
+}
