@@ -79,7 +79,7 @@ body {
 }
 
 .showForm{
-  width: 300px;
+  width: 400px;
   opacity: 1;
   transition: width .2s, opacity .2s ease-in;
   border-right: 1px solid #e5e5e5;
@@ -109,4 +109,24 @@ body {
 
 .btn-simple:hover{
   text-decoration: underline;
+}
+
+.nota-container{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.nota{
+  width: 250px;
+  height: 200px;
+  overflow-wrap: break-word;
+}
+
+.nota__title{
+  font-size: 1.5rem;
+}
+
+.nota__body{
+  overflow: hidden;
 }

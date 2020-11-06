@@ -27,13 +27,15 @@
 
 <div class="main-container py-4 px-5">
     <h2 class="m-0">Lista de notas</h2>
-    <button class="btn-simple" id="showNotaForm">Agregar Notas</button>
+    <button class="btn-simple mb-4" id="showNotaForm">Agregar Notas</button>
 
-    @foreach (var nota in Model)
-    {
-        <div class="nota">
-            <h3 class="nota__title">@nota.Titulo</h3>
-            <p class="nota__body">@nota.Cuerpo</p>
-        </div>
-    }
+    <div class="nota-container p-0">
+        @foreach (var nota in Model)
+        {
+            <div class="nota bg-info text-light p-2 rounded mb-3 d-inline-block    ">
+                <h3 class="nota__title pb-2 text-center border-bottom">@nota.Titulo</h3>
+                <p class="nota__body">@nota.Cuerpo</p>
+            </div>
+        }
+    </div>
 </div>
