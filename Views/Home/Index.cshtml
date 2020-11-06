@@ -1,6 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@model List<Nota>
 
 <form action="@Url.Action("SaveNota","Home")" class="px-4 py-5 notaForm bg-dark text-light" id="notaForm" method="POST">
     <button class="notaForm__CloseBtn" id="closeForm">
@@ -27,4 +28,12 @@
 <div class="main-container py-4 px-5">
     <h2 class="m-0">Lista de notas</h2>
     <button class="btn-simple" id="showNotaForm">Agregar Notas</button>
+
+    @foreach (var nota in Model)
+    {
+        <div class="nota">
+            <h3 class="nota__title">@nota.Titulo</h3>
+            <p class="nota__body">@nota.Cuerpo</p>
+        </div>
+    }
 </div>

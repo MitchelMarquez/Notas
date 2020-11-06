@@ -22,7 +22,7 @@ namespace Notas.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return View( db.Nota.ToList() );
         }
 
         public IActionResult Privacy()
