@@ -48,5 +48,29 @@ namespace Notas.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        // LOGIN USUARIO
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        public IActionResult VerificarUsuario( string Usuario, string Password )
+        {
+            // Imprimir en consola datos del usuario 
+            Console.WriteLine($"Nombre usario:{Usuario}, contraseña: {Password}");
+
+            // Verificar logica!!!
+            if(Usuario == null) {
+                this.ViewBag.usuarioExist = "Prueba";
+                return RedirectToAction("Login");
+            }
+            else
+            {
+                this.ViewBag.usuarioExist = "existe";
+                return RedirectToAction("Index");
+            }
+            
+        }
     }
 }
