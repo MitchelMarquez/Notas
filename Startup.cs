@@ -12,7 +12,7 @@ using Notas.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Notas
-{
+{   
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -27,6 +27,15 @@ namespace Notas
         {
             services.AddControllersWithViews();
             services.AddDbContext<NotasContext>(options => options.UseSqlite(Configuration.GetConnectionString("NotasContext")));
+            services.AddDistributedMemoryCache();
+
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(10);
+                options.Cookie.Name =".Notas.Session";
+                options.Cookie.HttpOnly =true;
+                options.Cookie.IsEssential=true;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,6 +57,8 @@ namespace Notas
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {
