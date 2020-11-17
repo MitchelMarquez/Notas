@@ -16,7 +16,7 @@ namespace  Notas.Models
     [Required]
     public string Cuerpo { get; set; }
     
-    // [Required]
-    // public Usuario  Creador { get; set; }
+    [Required]
+    public Usuario  Creador { get; set; }
    }
 }

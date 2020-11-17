@@ -8,8 +8,8 @@ using Notas.Models;
 namespace Notas.Migrations
 {
     [DbContext(typeof(NotasContext))]
-    [Migration("20201106144935_nombreMigracion")]
-    partial class nombreMigracion
+    [Migration("20201117184722_PrimeraMigracionParte2")]
+    partial class PrimeraMigracionParte2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,6 +23,10 @@ namespace Notas.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("CreadorMail")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Cuerpo")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -33,7 +37,32 @@ namespace Notas.Migrations
 
                     b.HasKey("ID");
 
+                    b.HasIndex("CreadorMail");
+
                     b.ToTable("Nota");
+                });
+
+            modelBuilder.Entity("Notas.Models.Usuario", b =>
+                {
+                    b.Property<string>("Mail")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Nombre")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Mail");
+
+                    b.ToTable("Usuario");
+                });
+
+            modelBuilder.Entity("Notas.Models.Nota", b =>
+                {
+                    b.HasOne("Notas.Models.Usuario", "Creador")
+                        .WithMany("Notas")
+                        .HasForeignKey("CreadorMail")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }
