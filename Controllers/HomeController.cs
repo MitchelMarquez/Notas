@@ -50,7 +50,7 @@ namespace Notas.Controllers
         }
 
         // LOGIN USUARIO
-        public IActionResult Login()
+        public IActionResult Login( bool userExist = true )
         {
             return View();
         }
@@ -71,6 +71,13 @@ namespace Notas.Controllers
                 return RedirectToAction("Index");
             }
             
+        }
+
+
+        // REGISTER USER
+        public IActionResult Register()
+        {
+            return View();
         }
     }
 }
